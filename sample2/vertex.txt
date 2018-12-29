@@ -1,0 +1,8 @@
+attribute vec4 aVertexPosition;
+attribute vec4 aVertexColor;
+
+varying lowp vec4 vPos;
+void main(void) {
+  gl_Position = aVertexPosition;
+  vPos = (aVertexPosition + 1.) / 2.;
+}

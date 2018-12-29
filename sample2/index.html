@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WebGL Demo</title>
+    <link rel="stylesheet" href="../webgl.css" type="text/css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+  </head>
+
+  <body>
+      <div id="text">
+          <font size="15" color="white">Julia Set</font>
+      </div>
+
+      <div id="function">
+          <font size="5" color="white">$$Z_{n+1} = Z_n^2 + C$$</font>
+      </div>
+
+
+      <div id="shader">
+          <canvas id="glcanvas" width="640" height="480"></canvas>
+      </div>
+
+      <div id="github">
+          <a href="#"><font size="5" color="white">Github</font></a>
+      </div>
+
+      <div id="shadertoy">
+          <a href="#"><font size="5" color="white">Shadertoy</font></a>
+      </div>
+  </body>
+
+  <script src="../gl-matrix.js"></script>
+  <script src="webgl-demo.js"></script>
+</html>

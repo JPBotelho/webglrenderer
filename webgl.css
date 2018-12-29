@@ -1,0 +1,42 @@
+canvas {
+	border: 5px solid white;
+	background-color: black;
+	padding-left: 0;
+    padding-right: 0;
+	margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+#text
+{
+	text-align: center;
+    font-family: sans-serif;
+    display: block;
+}
+#function
+{
+	color: "white";
+}
+#github
+{
+	text-align: center;
+    font-family: sans-serif;
+    display: block;
+	margin-top: 15px;
+}
+
+#shadertoy
+{
+	text-align: center;
+    font-family: sans-serif;
+    display: block;
+}
+
+video {
+	display: none;
+}
+
+body {
+	background-color: #262626;
+}
