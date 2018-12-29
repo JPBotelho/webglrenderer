@@ -31,10 +31,7 @@ const vsSource = `
     varying lowp vec4 vPos;
 	precision highp float;
 
-    uniform float time;
-    uniform vec2 params;
-
-
+	uniform float time;
     vec2 cmul (vec2 c1, vec2 c2)
 {
 	float a = c1.x;
@@ -65,7 +62,7 @@ void main()
         }
 
        z = cmul(z, z);
-       z += params;
+       z += sin(time);
        i++;
     }
     gl_FragColor = vec4(i)/100.;
@@ -87,7 +84,7 @@ void main()
     },
   };
 
-  var time = gl.getUniformLocation(shaderProgram, "time");
+  var location = gl.getUniformLocation(shaderProgram, "time");
 
 
   // Here's where we call the routine that builds all the
@@ -102,7 +99,7 @@ void main()
     const deltaTime = now - then;
     then = now;
 
-    drawScene(gl, programInfo, buffers, deltaTime, time);
+    drawScene(gl, programInfo, buffers, deltaTime, location);
 
     requestAnimationFrame(render);
   }
@@ -163,7 +160,7 @@ function initBuffers(gl) {
 //
 // Draw the scene.
 //
-function drawScene(gl, programInfo, buffers, deltaTime, time) {
+function drawScene(gl, programInfo, buffers, deltaTime, location) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
   gl.clearDepth(1.0);                 // Clear everything
   gl.enable(gl.DEPTH_TEST);           // Enable depth testing
@@ -203,13 +200,9 @@ function drawScene(gl, programInfo, buffers, deltaTime, time) {
     gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
   }
 
-  var realValue = document.getElementById("reSlider").value;
-  var imaginaryValue = document.getElementById("imSlider").value;
-  var params = gl.getUniformLocation(programInfo.program, "params");
-  gl.uniform2f(params, realValue, imaginaryValue);
-
   // Update the rotation for the next draw
-  gl.uniform1f(time, 1);
+  gl.uniform1f(location, timeElapsed);
+
   timeElapsed += deltaTime;
 }
 
