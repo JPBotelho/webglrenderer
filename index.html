@@ -9,6 +9,8 @@
   </head>
 
   <body>
+
+
       <div id="text">
           <font size="15" color="white">Julia Set</font>
       </div>
@@ -17,20 +19,36 @@
           <font size="5" color="white">$$Z_{n+1} = Z_n^2 + C$$</font>
       </div>
 
-
       <div id="shader">
           <canvas id="glcanvas" width="640" height="480"></canvas>
+      </div>
+      <div class="slidecontainer" id="sliders">
+          <font size="3" color="white">Re</font>
+          <input type="range" min="-1.0" max="1.0" step=".01" value=".5" class="slider" id="reSlider">
+      </div>
+
+      <div id="sliderValue">
+          <font size="3" color="white" id="reVal">1.35</font>
+      </div>
+
+      <div class="slidecontainer" id="sliders">
+          <font size="3" color="white">Im</font>
+          <input type="range" min="-1.0" max="1.0" step=".01" value="0.5" class="slider" id="imSlider">
+      </div>
+      <div id="sliderValue">
+          <font size="3" color="white" id="imVal">1.35</font>
       </div>
 
       <div id="github">
           <a href="#"><font size="5" color="white">Github</font></a>
+          <a href="#"><font size="5" color="white">Shadertoy</font></a>
       </div>
 
       <div id="shadertoy">
-          <a href="#"><font size="5" color="white">Shadertoy</font></a>
       </div>
   </body>
 
-  <script src="../gl-matrix.js"></script>
+  <script src="gl-matrix.js"></script>
   <script src="webgl-demo.js"></script>
+  <script src="ui.js"></script>
 </html>
